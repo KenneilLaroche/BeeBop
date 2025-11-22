@@ -793,6 +793,8 @@ export const MOCK_BOPS: BopProfile[] = [
     year: CollegeYear.JUNIOR,
     imageUrl: 'https://picsum.photos/400/400?random=1',
     rating: 9.5, // BOP!
+    voteCount: 24,
+    totalScore: 228, // 9.5 * 24
     description: 'Always talking about some fight club. Has immaculate vibes though.',
     createdAt: Date.now(),
   },
@@ -803,6 +805,8 @@ export const MOCK_BOPS: BopProfile[] = [
     year: CollegeYear.SENIOR,
     imageUrl: 'https://picsum.photos/400/400?random=2',
     rating: 2.2, // ANGEL
+    voteCount: 15,
+    totalScore: 33, // 2.2 * 15
     description: 'Literally the sun in human form. Bakes cookies for the dorm.',
     createdAt: Date.now() - 100000,
   },
@@ -813,6 +817,8 @@ export const MOCK_BOPS: BopProfile[] = [
     year: CollegeYear.SOPHOMORE,
     imageUrl: 'https://picsum.photos/400/400?random=3',
     rating: 5.5, // MEH
+    voteCount: 8,
+    totalScore: 44, // 5.5 * 8
     description: 'Needs to stop wearing sunglasses indoors. But he pays for drinks.',
     createdAt: Date.now() - 200000,
   },
@@ -823,6 +829,8 @@ export const MOCK_BOPS: BopProfile[] = [
     year: CollegeYear.GRAD,
     imageUrl: 'https://picsum.photos/400/400?random=4',
     rating: 1.0, // SAINT
+    voteCount: 50,
+    totalScore: 50, // 1.0 * 50
     description: 'Academic weapon. Library vibes are unmatched. Pure soul.',
     createdAt: Date.now() - 300000,
   }

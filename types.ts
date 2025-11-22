@@ -22,7 +22,9 @@ export interface BopProfile {
   school: string;
   year: CollegeYear;
   imageUrl: string;
-  rating: number; // 1-10 scale
+  rating: number; // Current average rating (1-10 scale)
+  voteCount: number; // Number of votes cast
+  totalScore: number; // Sum of all rating values
   description: string;
   createdAt: number;
   authorEmail?: string;

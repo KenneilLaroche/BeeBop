@@ -27,10 +27,30 @@ const App: React.FC = () => {
       id: Date.now().toString(),
       ...data,
       imageUrl: URL.createObjectURL(imageFile),
+      voteCount: 1,
+      totalScore: data.rating,
       createdAt: Date.now(),
       authorEmail: user?.email,
     };
     setBops([newBop, ...bops]);
+  };
+
+  const handleVote = (id: string, userRating: number) => {
+    setBops(currentBops => currentBops.map(bop => {
+      if (bop.id === id) {
+        const newTotal = bop.totalScore + userRating;
+        const newCount = bop.voteCount + 1;
+        // Calculate new average and round to 1 decimal
+        const newAverage = Math.round((newTotal / newCount) * 10) / 10;
+        return {
+          ...bop,
+          totalScore: newTotal,
+          voteCount: newCount,
+          rating: newAverage
+        };
+      }
+      return bop;
+    }));
   };
 
   const filteredBops = useMemo(() => {
@@ -157,7 +177,7 @@ const App: React.FC = () => {
       <main className="max-w-3xl mx-auto px-4 py-6">
         {filteredBops.length > 0 ? (
            filteredBops.map(bop => (
-             <BopCard key={bop.id} bop={bop} />
+             <BopCard key={bop.id} bop={bop} onVote={handleVote} />
            ))
         ) : (
           <div className="text-center py-20">
